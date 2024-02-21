@@ -1,0 +1,27 @@
+﻿  player.cpp
+C:\Users\benja\OneDrive\Documents\GitHub\Group-Poker-Balance-Tracker\GroupPokerTracker\player.h(11,9): error C3646: 'Name': unknown override specifier
+C:\Users\benja\OneDrive\Documents\GitHub\Group-Poker-Balance-Tracker\GroupPokerTracker\player.h(11,13): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+C:\Users\benja\OneDrive\Documents\GitHub\Group-Poker-Balance-Tracker\GroupPokerTracker\player.h(18,9): error C2061: syntax error: identifier 'string'
+C:\Users\benja\OneDrive\Documents\GitHub\Group-Poker-Balance-Tracker\GroupPokerTracker\player.h(18,2): error C2535: 'player::player(void)': member function already defined or declared
+C:\Users\benja\OneDrive\Documents\GitHub\Group-Poker-Balance-Tracker\GroupPokerTracker\player.h(17,2): message : see declaration of 'player::player'
+C:\Users\benja\OneDrive\Documents\GitHub\Group-Poker-Balance-Tracker\GroupPokerTracker\player.h(21,16): error C2061: syntax error: identifier 'string'
+C:\Users\benja\OneDrive\Documents\GitHub\Group-Poker-Balance-Tracker\GroupPokerTracker\player.h(27,9): error C3646: 'get_Name': unknown override specifier
+C:\Users\benja\OneDrive\Documents\GitHub\Group-Poker-Balance-Tracker\GroupPokerTracker\player.h(27,17): error C2059: syntax error: '('
+C:\Users\benja\OneDrive\Documents\GitHub\Group-Poker-Balance-Tracker\GroupPokerTracker\player.h(27,19): error C2238: unexpected token(s) preceding ';'
+C:\Users\benja\OneDrive\Documents\GitHub\Group-Poker-Balance-Tracker\GroupPokerTracker\player.cpp(8,2): error C2065: 'Name': undeclared identifier
+C:\Users\benja\OneDrive\Documents\GitHub\Group-Poker-Balance-Tracker\GroupPokerTracker\player.cpp(14,9): error C7550: 'player::{ctor}': the qualified name in this context names a constructor, not a type
+C:\Users\benja\OneDrive\Documents\GitHub\Group-Poker-Balance-Tracker\GroupPokerTracker\player.cpp(14,16): error C2065: 'string': undeclared identifier
+C:\Users\benja\OneDrive\Documents\GitHub\Group-Poker-Balance-Tracker\GroupPokerTracker\player.cpp(14,23): error C2146: syntax error: missing ')' before identifier 'n'
+C:\Users\benja\OneDrive\Documents\GitHub\Group-Poker-Balance-Tracker\GroupPokerTracker\player.cpp(15,1): error C2143: syntax error: missing ';' before '{'
+C:\Users\benja\OneDrive\Documents\GitHub\Group-Poker-Balance-Tracker\GroupPokerTracker\player.cpp(15,1): error C2447: '{': missing function header (old-style formal list?)
+C:\Users\benja\OneDrive\Documents\GitHub\Group-Poker-Balance-Tracker\GroupPokerTracker\player.cpp(67,14): error C2039: 'print_player': is not a member of 'player'
+C:\Users\benja\OneDrive\Documents\GitHub\Group-Poker-Balance-Tracker\GroupPokerTracker\player.h(5,7): message : see declaration of 'player'
+C:\Users\benja\OneDrive\Documents\GitHub\Group-Poker-Balance-Tracker\GroupPokerTracker\player.cpp(69,2): error C2065: 'cout': undeclared identifier
+C:\Users\benja\OneDrive\Documents\GitHub\Group-Poker-Balance-Tracker\GroupPokerTracker\player.cpp(69,8): error C2065: 'Name': undeclared identifier
+C:\Users\benja\OneDrive\Documents\GitHub\Group-Poker-Balance-Tracker\GroupPokerTracker\player.cpp(70,1): error C2059: syntax error: '}'
+  Source.cpp
+C:\Users\benja\OneDrive\Documents\GitHub\Group-Poker-Balance-Tracker\GroupPokerTracker\Source.cpp(21,8): error C2679: binary '=': no operator found which takes a right-hand operand of type 'player *' (or there is no acceptable conversion)
+C:\Users\benja\OneDrive\Documents\GitHub\Group-Poker-Balance-Tracker\GroupPokerTracker\player.h(39,1): message : could be 'player &player::operator =(player &&)'
+C:\Users\benja\OneDrive\Documents\GitHub\Group-Poker-Balance-Tracker\GroupPokerTracker\player.h(39,1): message : or       'player &player::operator =(const player &)'
+C:\Users\benja\OneDrive\Documents\GitHub\Group-Poker-Balance-Tracker\GroupPokerTracker\Source.cpp(21,8): message : while trying to match the argument list '(player, player *)'
+  Generating Code...
