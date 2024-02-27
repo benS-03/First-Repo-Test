@@ -1,2 +1,2 @@
-ben 30
-chris 20
+ben 30 20 20
+chris 20 30 30
