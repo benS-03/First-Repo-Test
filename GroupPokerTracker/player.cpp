@@ -11,18 +11,18 @@ player::player()
 	balance = 0;
 }
 
-player::player(string n, double buy, double endhold, double bal)
+player::player(string n, double buy, double endhold)
 {
 	Name = n;
 	total_buy_in = buy;
 	total_end_holding = endhold;
-	balance = bal;
+	this->set_Balance();
 }
 
 
 void player::set_Name(string n)
 {
-	Name = n;
+	Name = "Ben";
 }
 
 void player::set_BuyIn(double x)
@@ -75,5 +75,5 @@ void player::inc_EndHolding(double x)
 
 void player::print_Player()
 {
-	cout << Name << "\nTotal Buy In: "<< total_buy_in << "\nEnd Holdings: "<< total_end_holding << "\nBalance: "<<balance;
+	cout << Name << "\nTotal Buy In: " << total_buy_in << "\nEnd Holdings: " << total_end_holding << "\nBalance: " << balance;
 }

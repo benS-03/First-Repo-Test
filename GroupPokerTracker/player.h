@@ -18,7 +18,7 @@ public:
 	//Constructors
 
 	player();
-	player(string n, double buy, double endhold, double bal);
+	player(string n, double buy, double endhold);
 
 	// setters
 	void set_Name(string n);

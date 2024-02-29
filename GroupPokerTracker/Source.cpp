@@ -3,15 +3,11 @@
 #include <vector>
 #include "player.h"
 #include <string>
+#include <stdlib.h>
 
 using namespace std;
 
-template<class T>
-T get(std::istream& is) {
-	T result;
-	is >> result;
-	return result;
-}
+
 
 
 int getNumLines();
@@ -23,6 +19,8 @@ bool file_reader(player* Data);
 void print_menu();
 
 bool add_player(player* Data, int num);
+
+bool edit_player(player* Data, int num);
 
 int main()
 {
@@ -53,9 +51,10 @@ int main()
 			add_player(Data, numOfPlayer);
 			numOfPlayer++;
 			break;
+			
 
 		case 2:
-
+			edit_player(Data, numOfPlayer);
 			break;
 
 		case 3:
@@ -63,7 +62,9 @@ int main()
 			break;
 
 		case 4:
-
+			
+			Data = 0;
+			numOfPlayer = 0;
 			break;
 
 		case 0:
@@ -156,23 +157,37 @@ void print_menu()
 		<< "\n0: Exit Program\n\n";
 }
 
-bool add_player(player* Data,int num)
+bool add_player(player* Data, int num)
 {
+
+
+
 	player temp;
+	string temp2 = "";
+	double temp3;
 
 	cout << "Enter Player's Name\n";
 
-	temp.set_Name(get<string>(cin));
+	cin >> temp2;
+	temp.set_Name(temp2);
 
 	cout << "\nEnter Player's Buy In\n";
 
-	temp.set_BuyIn(get<double>(cin));
+	cin >> temp3;
+	temp.set_BuyIn(temp3);
 
 	cout << "\nEnter Player's End Holdings\n";
 
-	temp.set_EndHolding(get<double>(cin));
+	cin >> temp3;
+	temp.set_EndHolding(temp3);
 
 	temp.set_Balance();
+
+	if (Data == 0)
+	{
+		//todo
+
+	}
 
 	player* newData = new player[num];
 
@@ -180,29 +195,90 @@ bool add_player(player* Data,int num)
 	{
 		newData[i] = Data[i];
 	}
-	
+
 	Data = new player[num + 1];
 
-	for (int i = 0; i <= num; i++)
+	for (int j = 0; j < num; j++)
 	{
-		Data[i] = newData[i];
+		Data[j] = newData[j];
 	}
 
 	Data[num] = temp;
 
-	delete newData;
-
-
 	
-
 	return 1;
 }
 
 void print_Data(player* Data, int num)
 {
+	if (Data == 0)
+	{
+		cout << "No data.";
+		return;
+	}
+
 	for (int i = 0; i < num; i++)
 	{
 		Data[i].print_Player();
 		cout << "\n";
+	}
+}
+
+
+
+bool edit_player(player* Data, int num)
+{
+	string temp;
+	string temp2;
+	double temp3;
+	int temp4;
+
+	cout << "Enter name of player you wish to edit: ";
+	cin >> temp;
+
+	for (int i = 0; i < num; i++)
+	{
+		if (temp == Data[i].get_Name())
+		{
+			Data[i].print_Player();
+			
+			cout << "1 for Add, 2 for edit: ";
+			cin >> temp4;
+
+			if (temp4 == 1)
+			{
+				cout << "How Much to add to buy in: ";
+				cin >> temp3;
+
+				Data[i].inc_BuyIn(temp3);
+
+				cout << "\nHow much to add to end holdings: ";
+				cin >> temp3;
+
+				Data[i].inc_EndHolding(temp3);
+
+			}
+			else
+			{
+				cout << "New Buy In: ";
+				cin >> temp3;
+
+				Data[i].set_BuyIn(temp3);
+
+				cout << "New end holdings: ";
+				cin >> temp3;
+				Data[i].set_EndHolding(temp3);
+
+
+			}
+
+			Data[i].set_Balance();
+
+			cout << "\nEdited player data";
+			Data[i].print_Player();
+			system("pause");
+			return 1;
+			
+		}
 	}
 }
