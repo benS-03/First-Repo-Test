@@ -22,7 +22,7 @@ player::player(string n, double buy, double endhold)
 
 void player::set_Name(string n)
 {
-	Name = "Ben";
+	Name = n;
 }
 
 void player::set_BuyIn(double x)
