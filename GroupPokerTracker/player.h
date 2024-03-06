@@ -12,9 +12,9 @@ private:
 	double total_end_holding = 0.0;
 	double balance;
 	string Name;
-	
+
 public:
-	
+
 	//Constructors
 
 	player();
@@ -38,5 +38,5 @@ public:
 
 	//display
 	void print_Player();
-
+	void print_Player_t();
 };

@@ -1,5 +1,7 @@
 
 #include "player.h"
+#include <sstream>
+#include <iomanip>
 
 using namespace std;
 
@@ -75,5 +77,29 @@ void player::inc_EndHolding(double x)
 
 void player::print_Player()
 {
-	cout << Name << "\nTotal Buy In: " << total_buy_in << "\nEnd Holdings: " << total_end_holding << "\nBalance: " << balance;
+	cout << Name << "\nTotal Buy-In:        " << total_buy_in
+		<< "\nTotal End Holdings:  " << total_end_holding
+		<< "\nBalance:             " << balance;
+}
+
+void player::print_Player_t()
+{
+	int buy_in_length;
+	int holdings_length;
+	int balance_length;
+
+	stringstream s;
+	
+	s << fixed << setprecision(2) << total_buy_in;
+	buy_in_length = s.str().length();
+	s.str("");
+	s << total_end_holding;
+	holdings_length = s.str().length();
+	s.str("");
+	s << balance;
+	balance_length = s.str().length();
+	s.str("");
+
+
+	cout << fixed << setprecision(2) << "\n| " << Name << string(9 - Name.length(), ' ') << "| " << total_buy_in << string(15-buy_in_length,' ') <<'|'<<"  " << total_end_holding << string(19-holdings_length,' ')<<'|'<<"  " << balance << string(9-balance_length,' ') << '|';
 }

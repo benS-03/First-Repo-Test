@@ -18,15 +18,18 @@ void player_data::print_data()
 {
 	if (Data == 0)
 	{
-		cout << "No data.";
+		cout << "---------No data.---------";
 		return;
 	}
-
+	cout << "|  Player  |  Total Buy-In  | Total End Holdings  |  Balance  |"
+		<< "\n--------------------------------------------------------------";
 	for (int i = 0; i < size; i++)
 	{
-		Data[i].print_Player();
-		cout << "\n";
+		Data[i].print_Player_t();
+		cout << "\n--------------------------------------------------------------";
 	}
+	cout << "\n\n";
+
 }
 
 void player_data::gen_size()
@@ -176,17 +179,17 @@ void player_data::add_player()
 	string temp_name = "";
 	double temp_data;
 
-	cout << "Enter Player's Name\n";
+	cout << "Enter Player's Name: ";
 
 	cin >> temp_name;
 	temp.set_Name(temp_name);
 
-	cout << "\nEnter Player's Buy In\n";
+	cout << "\nEnter Player's Buy In: ";
 
 	cin >> temp_data;
 	temp.set_BuyIn(temp_data);
 
-	cout << "\nEnter Player's End Holdings\n";
+	cout << "\nEnter Player's End Holdings: ";
 
 	cin >> temp_data;
 	temp.set_EndHolding(temp_data);
@@ -238,10 +241,12 @@ bool player_data::edit_player()
 
 	cout << "1 for Add, 2 for edit: ";
 	cin >> temp_select;
+	cout << "\n";
+	Data[index].print_Player();
 
 	if (temp_select == 1)
 	{
-		cout << "How Much to add to buy in: ";
+		cout << "\n\nHow Much to add to buy in: ";
 		cin >> temp_data;
 
 		Data[index].inc_BuyIn(temp_data);
@@ -254,12 +259,12 @@ bool player_data::edit_player()
 	}
 	else
 	{
-		cout << "New Buy In: ";
+		cout << "\n\nNew Buy In: ";
 		cin >> temp_data;
 
 		Data[index].set_BuyIn(temp_data);
 
-		cout << "New end holdings: ";
+		cout << "\nNew end holdings: ";
 		cin >> temp_data;
 		Data[index].set_EndHolding(temp_data);
 
@@ -268,9 +273,9 @@ bool player_data::edit_player()
 
 	Data[index].set_Balance();
 
-	cout << "\nEdited player data";
+	cout << "\n\nEdited player data:\n\n";
 	Data[index].print_Player();
-	system("pause");
+	cout << "\n\n";
 	return 1;
 
 }
@@ -291,15 +296,15 @@ void player_data::verify_totals()
 
 	if (total_buyin == total_holdings)
 	{
-		cout << "\n\nValues Match. No lost balance";
+		cout << "\n\nValues Match. No lost balance\n\n";
 	}
 	else if (total_buyin > total_holdings)
 	{
-		cout << "\n\nValues do not match: Buy In Greater Than Holdings";
+		cout << "\n\nValues do not match: Buy In Greater Than Holdings\n\n";
 	}
 	else
 	{
-		cout << "\b\bValues do not match: Holdings Greater Than Buy In";
+		cout << "\b\bValues do not match: Holdings Greater Than Buy In\n\n";
 	}
 
 }

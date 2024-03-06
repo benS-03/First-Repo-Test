@@ -27,10 +27,10 @@ int main()
 
 
 	
-
+	cout << "Welcome To Poker Balance Tracker\n\n";
 	while (e == 1)
 	{
-		cout << "Welcome To Poker Balance Tracker\n\n";
+		
 		print_menu();
 		cout << "\n\n";
 		Data.print_data();
@@ -40,31 +40,36 @@ int main()
 		case 1:
 			
 			Data.add_player();
-
+			system("pause");
 			break;
 			
 
 		case 2:
 			Data.edit_player();
+			system("pause");
 			break;
 
 		case 3:
 
 			Data.delete_player();
+			system("pause");
 			break;
 
 		case 4:
 			
-
+			cout << "NOT IMPLEMENTED YET\n";
+			system("pause");
 			break;
 
 		case 5:
 
 			Data.file_writer();
+			system("pause");
 			break;
 
 		case 6:
 			Data.verify_totals();
+			system("pause");
 			break;
 
 		case 0:
