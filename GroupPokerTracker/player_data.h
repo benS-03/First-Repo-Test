@@ -36,7 +36,9 @@ public:
 
 	void generate_payment();
 
-	bool clear_data();
+	void clear_data();
+
+	void create_file();
 
 
 

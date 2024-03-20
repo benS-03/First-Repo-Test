@@ -56,11 +56,21 @@ void player_data::gen_size()
 
 }
 
+void player_data::create_file()
+{
+	ifstream inData;
+	inData.open("GroupData.txt");
+
+	inData.close();
+}
+
 bool player_data::file_reader()
 {
 
 	ifstream inData;
 	inData.open("GroupData.txt");
+
+
 
 	if (inData.fail())
 		return 0;
@@ -220,6 +230,8 @@ void player_data::delete_player()
 
 bool player_data::edit_player()
 {
+
+
 	string temp_name;
 	int index = -1;
 	int temp_select;
@@ -236,6 +248,12 @@ bool player_data::edit_player()
 			index = i;
 			break;
 		}
+	}
+
+	if (index == -1)
+	{
+		cout << "No Player With That Name Exists (check your capitalization ).";
+		return 0;
 	}
 
 	cout << "1 for Add, 2 for edit: ";
@@ -370,13 +388,11 @@ void player_data::generate_payment()
 	}
 }
 
-bool player_data::clear_data()
+void player_data::clear_data()
 {
 	delete[] Data;
 	Data = 0;
 	size = 0;
-
-	return 1;
 }
 
 bool exists_test0() {
