@@ -1,2 +1,4 @@
 ﻿  player_data.cpp
+C:\Users\benja\OneDrive\Documents\GitHub\Group-Poker-Balance-Tracker\GroupPokerTracker\player_data.cpp(333,16): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\benja\OneDrive\Documents\GitHub\Group-Poker-Balance-Tracker\GroupPokerTracker\player_data.cpp(334,16): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
   GroupPokerTracker.vcxproj -> C:\Users\benja\OneDrive\Documents\GitHub\Group-Poker-Balance-Tracker\x64\Debug\GroupPokerTracker.exe

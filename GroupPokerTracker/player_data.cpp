@@ -3,6 +3,7 @@
 #include <fstream>
 #include <stdlib.h>
 #include <istream>
+#include <vector>
 
 
 using namespace std;
@@ -16,9 +17,9 @@ player_data::player_data()
 
 void player_data::print_data()
 {
-	if (Data == 0)
+	if (Data == 0 || Data == nullptr)
 	{
-		cout << "---------No data.---------";
+		cout << "---------No data.---------\n";
 		return;
 	}
 	cout << "|  Player  |  Total Buy-In  | Total End Holdings  |  Balance  |"
@@ -34,12 +35,12 @@ void player_data::print_data()
 
 void player_data::gen_size()
 {
-	
-	ifstream inData;
 
+	ifstream inData;
+	
 	inData.open("GroupData.txt");
 
-	int count = 0;
+	int count = -1;
 	string dont_care;
 
 	while (!inData.eof())
@@ -77,7 +78,7 @@ bool player_data::file_reader()
 	int count = 0;
 	double temp2;
 
-	while (!inData.eof())
+	for (int count = 0; count < size; count++)
 	{
 		player temp_p;
 		inData >> temp;
@@ -96,8 +97,6 @@ bool player_data::file_reader()
 		temp_p.set_Balance();
 
 		Data[count] = temp_p;
-
-		count++;
 
 	}
 
@@ -307,4 +306,80 @@ void player_data::verify_totals()
 		cout << "\b\bValues do not match: Holdings Greater Than Buy In\n\n";
 	}
 
+}
+
+void player_data::generate_payment()
+{
+	
+	vector<string> pos_names, neg_names;
+	vector<double> pos_balance, neg_balance;
+
+	
+	for (int i = 0; i < size; i++)
+	{
+		if (Data[i].get_Balance() > 0)
+		{
+			pos_names.push_back(Data[i].get_Name());
+			pos_balance.push_back(Data[i].get_Balance());
+
+		}
+		else if (Data[i].get_Balance() < 0)
+		{
+			neg_names.push_back(Data[i].get_Name());
+			neg_balance.push_back(Data[i].get_Balance());
+		}
+	}
+
+	int pos_track = pos_names.size() - 1;
+	int neg_track = neg_names.size() - 1;
+	cout << "\n " + neg_names[neg_track] + ":\n";
+	while ( pos_track != -1)
+	{
+
+		if (pos_balance[pos_track] + neg_balance[neg_track] < 0)
+		{
+			cout << "Pay " + pos_names[pos_track] + " $" + to_string(pos_balance[pos_track]) + "\n";
+			neg_balance[neg_track] += pos_balance[pos_track];
+
+			pos_names.pop_back();
+			pos_balance.pop_back();
+			pos_track--;
+		}
+		else if (pos_balance[pos_track] + neg_balance[neg_track] == 0)
+		{
+			cout << "Pay " + pos_names[pos_track] + " $" + to_string(-1 * neg_balance[neg_track]) + "\n";
+			neg_balance.pop_back();
+			neg_names.pop_back();
+			neg_track--;
+			cout << "\n " + neg_names[neg_track] + ":\n";
+			pos_names.pop_back();
+			pos_balance.pop_back();
+			pos_track--;
+
+		}
+		else
+		{
+			cout << "Pay " + pos_names[pos_track] + " $" + to_string(-1 * neg_balance[neg_track]) + "\n";
+			pos_balance[pos_track] += neg_balance[neg_track];
+			neg_balance.pop_back();
+			neg_names.pop_back();
+			neg_track--;
+			cout << "\n " + neg_names[neg_track] + ":\n";
+		}
+	
+	}
+}
+
+bool player_data::clear_data()
+{
+	delete[] Data;
+	Data = 0;
+	size = 0;
+
+	return 1;
+}
+
+bool exists_test0() {
+	ifstream f("GroupData.txt");
+	return f.good();
 }

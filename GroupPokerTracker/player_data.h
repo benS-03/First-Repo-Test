@@ -34,6 +34,10 @@ public:
 	
 	void verify_totals();
 
+	void generate_payment();
+
+	bool clear_data();
+
 
 
 

@@ -57,7 +57,7 @@ int main()
 
 		case 4:
 			
-			cout << "NOT IMPLEMENTED YET\n";
+			Data.clear_data();
 			system("pause");
 			break;
 
@@ -69,6 +69,14 @@ int main()
 
 		case 6:
 			Data.verify_totals();
+			system("pause");
+			break;
+
+		case 7:
+			Data.generate_payment();
+			cout << "\n\n Would you like to clear data now? (1 for yes 2 for no):";
+			cin >> select;
+			if (select == 1) Data.clear_data();
 			system("pause");
 			break;
 
@@ -95,6 +103,7 @@ void print_menu()
 		<< "\n4: Clear Data"
 		<< "\n5: Write Data to File"
 		<< "\n6: Vertify Totals"
+		<< "\n7: Generate Payment"
 		<< "\n0: Exit Program\n\n";
 }
 

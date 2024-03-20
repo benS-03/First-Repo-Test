@@ -98,7 +98,7 @@ void player::print_Player_t()
 	s.str("");
 	s << balance;
 	balance_length = s.str().length();
-	s.str("");
+	s.str(string());
 
 
 	cout << fixed << setprecision(2) << "\n| " << Name << string(9 - Name.length(), ' ') << "| " << total_buy_in << string(15-buy_in_length,' ') <<'|'<<"  " << total_end_holding << string(19-holdings_length,' ')<<'|'<<"  " << balance << string(9-balance_length,' ') << '|';
